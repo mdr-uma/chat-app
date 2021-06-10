@@ -74,9 +74,10 @@ const ChatRoom = () => {
 
 const ChatMessage = (props) => {
     const { textMsg, uid } = props.message
+    const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
     return(
-        <div>
+        <div className={`message ${messageClass}`}>
             <p>{textMsg}</p>
         </div>
     )
