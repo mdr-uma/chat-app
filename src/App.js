@@ -53,21 +53,25 @@ const SignIn = () => {
   )
 }
 
-const ChatRoom = () => {
-    const messagesRef = firestore.collection('messages')
-    const sortedMessages = messagesRef.orderBy('createdAt').limit(25)
-    
-    return(
-        <main>
-            message
-        </main>
-    )
-}
-
 const SignOut = () => {
     return auth.currentUser && (
         <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
     )
 }
+
+const ChatRoom = () => {
+    const messagesRef = firestore.collection('messages')
+    const sortedMessages = messagesRef.orderBy('createdAt').limit(25)
+
+    const [messages] = useCollectionData(sortedMessages, {idField: 'id'})
+    
+    return(
+        <main>
+            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+        </main>
+    )
+}
+
+
 
 export default App
