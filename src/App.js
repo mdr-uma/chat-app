@@ -34,6 +34,7 @@ const App = () => {
 
             <section>
                 {user ? <ChatRoom /> : <SignIn />}
+                <SignOut />
             </section>
         </div>
     ) 
@@ -57,6 +58,12 @@ const ChatRoom = () => {
         <main>
             message
         </main>
+    )
+}
+
+const SignOut = () => {
+    return auth.currentUser && (
+        <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
     )
 }
 
