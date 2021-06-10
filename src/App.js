@@ -54,6 +54,8 @@ const SignIn = () => {
 }
 
 const ChatRoom = () => {
+    const messagesRef = firestore.collection('messages')
+    
     return(
         <main>
             message
