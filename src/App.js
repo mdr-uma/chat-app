@@ -8,11 +8,19 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 firebase.initializeApp({
-
+    apiKey: "AIzaSyCLVGROIqidCkDV8kT4dDKz-XgF7XMpdG4",
+    authDomain: "wechat-3fd42.firebaseapp.com",
+    projectId: "wechat-3fd42",
+    storageBucket: "wechat-3fd42.appspot.com",
+    messagingSenderId: "782121701141",
+    appId: "1:782121701141:web:0132e6aa8c9b584c59a31c",
+    measurementId: "G-540ECP7HYY"
 })
 
 const auth = firebase.auth()
 const firestore = firebase.firestore()
+const analytics = firebase.analytics();
+
 
 const App = () => {
     return <h1>We Chat App</h1>
