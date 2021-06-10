@@ -72,6 +72,16 @@ const ChatRoom = () => {
     )
 }
 
+const ChatMessage = (props) => {
+    const { textMsg, uid } = props.message
+
+    return(
+        <div>
+            <p>{textMsg}</p>
+        </div>
+    )
+}
+
 
 
 export default App
