@@ -55,6 +55,7 @@ const SignIn = () => {
 
 const ChatRoom = () => {
     const messagesRef = firestore.collection('messages')
+    const sortedMessages = messagesRef.orderBy('createdAt').limit(25)
     
     return(
         <main>
