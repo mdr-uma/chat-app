@@ -52,4 +52,12 @@ const SignIn = () => {
   )
 }
 
+const ChatRoom = () => {
+    return(
+        <main>
+            message
+        </main>
+    )
+}
+
 export default App
