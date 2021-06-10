@@ -3,6 +3,7 @@ import React from 'react'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
+import 'firebase/analytics'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
@@ -23,7 +24,15 @@ const analytics = firebase.analytics();
 
 
 const App = () => {
-    return <h1>We Chat App</h1>
+    const [user] = useAuthState(auth)
+    
+    return(
+        <div>
+            <header>
+                <h1>We Chat 💬</h1>
+            </header>
+        </div>
+    ) 
 }
 
 export default App
