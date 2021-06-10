@@ -31,6 +31,11 @@ const App = () => {
             <header>
                 <h1>We Chat 💬</h1>
             </header>
+
+            <section>
+                {user ? <ChatRoom /> : <SignIn />}
+            </section>
+
         </div>
     ) 
 }
