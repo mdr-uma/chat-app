@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 
 import firebase from 'firebase/app'
 import 'firebase/firestore'
@@ -27,7 +28,7 @@ const App = () => {
     const [user] = useAuthState(auth)
     
     return(
-        <div>
+        <div className="App">
             <header>
                 <h1>We Chat 💬</h1>
             </header>
@@ -48,7 +49,7 @@ const SignIn = () => {
 
   return (
     <div>
-      <button className="sign-in" onClick={googleSignIn}>Sign in with Google</button>
+        <button className="sign-in" onClick={googleSignIn}>Sign in with Google</button>
     </div>
   )
 }
@@ -64,25 +65,25 @@ const ChatRoom = () => {
     const sortedMessages = messagesRef.orderBy('createdAt').limit(25)
 
     const [messages] = useCollectionData(sortedMessages, {idField: 'id'})
-    
+ 
     return(
-        <main>
-            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-        </main>
+        <div>
+            <main>
+                {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+            </main>
+        </div>     
     )
 }
 
 const ChatMessage = (props) => {
-    const { textMsg, uid } = props.message
+    const { text, uid } = props.message
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
     return(
         <div className={`message ${messageClass}`}>
-            <p>{textMsg}</p>
+            <p>{text}</p>
         </div>
     )
 }
-
-
 
 export default App
