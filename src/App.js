@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import './App.css'
 
 import firebase from 'firebase/app'
@@ -63,16 +63,25 @@ const SignOut = () => {
 }
 
 const ChatRoom = () => {
+    const dummy = useRef();
     const messagesRef = firestore.collection('messages')
     const sortedMessages = messagesRef.orderBy('createdAt').limit(25)
 
     const [messages] = useCollectionData(sortedMessages, {idField: 'id'})
- 
+
+    const [formValue, setFormValue] = useState('');
+    
     return(
         <div>
             <main>
                 {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+                <span ref={dummy}></span>
             </main>
+
+            <form onSubmit={sendMessage}>
+                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="text message" />
+                <button type="submit" disabled={!formValue}>Send</button>           
+            </form> 
         </div>     
     )
 }
