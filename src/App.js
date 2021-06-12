@@ -70,6 +70,22 @@ const ChatRoom = () => {
     const [messages] = useCollectionData(sortedMessages, {idField: 'id'})
 
     const [formValue, setFormValue] = useState('');
+
+
+    const sendMessage = async (e) => {
+        e.preventDefault();
+
+        const { uid } = auth.currentUser;
+
+        await messagesRef.add({
+        text: formValue,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        uid
+        })
+
+        setFormValue('')
+        dummy.current.scrollIntoView({ behavior: 'smooth' });
+    }
     
     return(
         <div>
