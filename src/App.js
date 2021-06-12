@@ -49,6 +49,8 @@ const SignIn = () => {
 
   return (
     <div>
+        <h1 className="google-logo">G</h1> 
+        <br/>
         <button className="sign-in" onClick={googleSignIn}>Sign in with Google</button>
     </div>
   )
