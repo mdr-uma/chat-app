@@ -55,4 +55,49 @@ main::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
+form {
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(165, 58, 197);
+  width: 100%;
+  max-width: 728px;
+  display: flex;
+  font-size: 1.5rem;
+}
+
+form button {
+  width: 20%;
+  background-color: rgb(56, 56, 143);
+}
+
+
+input {
+  line-height: 1.5;
+  width: 100%;
+  font-size: 1.5rem;
+  background: rgba(221, 218, 218, 0.849);
+  color: white;
+  outline: none;
+  border: none;
+  padding: 0 10px;
+}
+
+button {
+  background-color: #282c34; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 
